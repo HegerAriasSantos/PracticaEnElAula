@@ -1,0 +1,37 @@
+﻿@model PrácticaEnElAula.Models.Vacations
+
+@{
+    ViewData["Title"] = " Vacaciones - Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h1>Vacaciones</h1>
+<h4>Detalles</h4>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaDeSalida)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaDeSalida)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaDeIngreso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaDeIngreso)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Employee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Employee.Nombre)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-primary">Volver</a>
+    <a asp-action="Edit" class="btn btn-success" asp-route-id="@Model.Id">Editar</a> 
+</div>

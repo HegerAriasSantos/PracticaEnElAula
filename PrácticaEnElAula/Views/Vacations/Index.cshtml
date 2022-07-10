@@ -1,0 +1,48 @@
+﻿@model IEnumerable<PrácticaEnElAula.Models.Vacations>
+
+@{
+    ViewData["Title"] = "Vacaciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Vacaciones</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Crear</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDeSalida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDeIngreso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaDeSalida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaDeIngreso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.Nombre)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id">Editar</a> 
+                <a asp-action="Details" class="btn btn-success"  asp-route-id="@item.Id">Ver Detalles</a> 
+                <a asp-action="Delete" class="btn btn-danger"  asp-route-id="@item.Id">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

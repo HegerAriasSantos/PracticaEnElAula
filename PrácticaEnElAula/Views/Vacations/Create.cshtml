@@ -1,0 +1,41 @@
+﻿@model PrácticaEnElAula.Models.Vacations
+
+@{
+    ViewData["Title"] = "Vacaciones - Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Vacaciones</h1>
+<h4>Crear</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdEmployee" class="control-label"></label>
+                <select asp-for="IdEmployee" class ="form-control" asp-items="ViewBag.IdEmployee"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaDeSalida" class="control-label"></label>
+                <input asp-for="FechaDeSalida" class="form-control" />
+                <span asp-validation-for="FechaDeSalida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaDeIngreso" class="control-label"></label>
+                <input asp-for="FechaDeIngreso" class="form-control" />
+                <span asp-validation-for="FechaDeIngreso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-primary">Volver</a>
+                <input type="submit" value="Crear" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
